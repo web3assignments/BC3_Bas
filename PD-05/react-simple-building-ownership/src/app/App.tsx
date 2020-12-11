@@ -72,6 +72,12 @@ export const App = React.memo(() => {
     setAccount(acts[0]);
   }
 
+  simpleBuildingOwnershipContract.events.NewBuilding()
+  .on('data', function(event: any){
+    console.log(event.returnValues);
+  })
+  .on('error', console.error);
+
   return <div className="app">
     <Nav chainId={chainId} networkId={networkId} account={account} />
     <div className="app__flex-split">

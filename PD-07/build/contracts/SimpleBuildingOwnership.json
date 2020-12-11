@@ -9735,6 +9735,38 @@
     "version": "0.7.0+commit.9e61f92b.Emscripten.clang"
   },
   "networks": {
+    "3": {
+      "events": {
+        "0x1da760a391045f9e73ee6cb692853deb3a02a500a3e38f6d6b4e6f7aa0215f02": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "internalType": "uint256",
+              "name": "index",
+              "type": "uint256"
+            },
+            {
+              "indexed": false,
+              "internalType": "uint256",
+              "name": "amountOfParts",
+              "type": "uint256"
+            },
+            {
+              "indexed": false,
+              "internalType": "address",
+              "name": "fillPartsAuthority",
+              "type": "address"
+            }
+          ],
+          "name": "NewBuilding",
+          "type": "event"
+        }
+      },
+      "links": {},
+      "address": "0x9adDb34d9684a789F9F342b122dc6CF891F25bF7",
+      "transactionHash": "0x42522d61b7a8b373235df201acb49aa263b777e226ace2982339ca8997f59496"
+    },
     "5777": {
       "events": {
         "0x1da760a391045f9e73ee6cb692853deb3a02a500a3e38f6d6b4e6f7aa0215f02": {
@@ -9769,7 +9801,7 @@
     }
   },
   "schemaVersion": "3.3.2",
-  "updatedAt": "2020-12-07T13:44:28.500Z",
+  "updatedAt": "2020-12-11T13:47:47.469Z",
   "networkType": "ethereum",
   "devdoc": {
     "kind": "dev",
