@@ -1,9 +1,17 @@
 //SPDX-License-Identifier: UNLICENSED
-pragma solidity 0.6.0;
+pragma solidity >=0.5.0 <0.7.0;
 
-import "github.com/provable-things/ethereum-api/provableAPI_0.6.sol";
+import "./provableAPI.sol";
+import "solidity-util/lib/Strings.sol";
+import "solidity-util/lib/Integers.sol";
+import "solidity-util/lib/Addresses.sol";
 
 contract SimpleBuildingOwnership is usingProvable {
+
+  using Strings for string;
+  using Integers for uint;
+  using Addresses for address;
+  using Addresses for address payable;
   
   event NewBuilding(uint index, uint amountOfParts, address fillPartsAuthority);
 
@@ -30,13 +38,50 @@ contract SimpleBuildingOwnership is usingProvable {
     string postalCode;
   }
 
+  struct ValidatedAddress {
+    string streetName;
+    string houseNumber;
+    string postalCode;
+  }
+
   Building[] private buildings;
   uint private totalBuildingPartsCount;
   mapping(uint => BuildingPart) private buildingParts;
+  mapping(string => ValidatedAddress) private validatedAddresses;
 
   function __callback(bytes32, string memory result) override public {
     if (msg.sender != provable_cbAddress()) revert();
-    //do stuff
+    
+    string[] memory split1 = result.split(", ");
+    string[] memory split2 = split1[1].split(" ");
+    string[] memory split3 = split1[0].split(" ");
+    string memory streetName = "";
+    if (split3.length > 2) {
+      for(uint i = 0; i < split3.length - 1; i++) {
+        streetName = streetName.concat(split3[i]).concat(" ");
+      }
+      streetName = streetName.substring(streetName.length() - 1);
+    } else {
+      streetName = split3[0];
+    }
+    string memory houseNumber = split3[split3.length - 1];
+    string memory postalCode = split2[0];
+    validatedAddresses.push(ValidatedAddress(streetName, houseNumber, postalCode));
+  }
+
+  function isAddressValidated(uint _buildingPartId) public returns (bool) {
+
+    BuildingPart memory buildingPart = buildingParts[_buildingPartId];
+    ValidatedAddress memory validatedAddress = validatedAddresses[buildingPart.postalCode];
+    
+    if (buildingPart.streetName.compareToIgnoreCase(validatedAddress.streetName)
+        && buildingPart.houseNumber.compareToIgnoreCase(validatedAddress.houseNumber)
+        && buildingPart.postalCode.compareToIgnoreCase(validatedAddress.postalCode)) {
+
+      return true;
+    } else {
+      return false;
+    }
   }
 
   function addBuilding(string memory _name, uint _partsCount) public returns (uint) {
@@ -46,14 +91,14 @@ contract SimpleBuildingOwnership is usingProvable {
   }
 
   function fillBuildingPart(uint _buildingIndex, uint _buildingPartIndex, string memory _buildingPartStreet, string memory _buildingPartNumber, 
-    string memory _buildingPartPostalCode address _buildingPartOwner) public payable 
+    string memory _buildingPartPostalCode, address _buildingPartOwner) public payable 
     onlyBuildingAuthority(_buildingIndex) onlyEmptyBuildingPart(_buildingIndex, _buildingPartIndex) returns (uint) {
     
-    uint memory priceOfUrl = provable_getPrice("URL");
+    uint priceOfUrl = provable_getPrice("URL");
     require (address(this).balance >= priceOfUrl,
         "please add some ETH to cover for the query fee");
     provable_query("URL", 
-        "json(https://geodata.nationaalgeoregister.nl/locatieserver/v3/suggest?q="+_buildingPartStreet+"%20"+_buildingPartNumber+","+_buildingPartPostalCode+").response");
+        "json(https://geodata.nationaalgeoregister.nl/locatieserver/v3/suggest?q="+_buildingPartStreet+"%20"+_buildingPartNumber+","+_buildingPartPostalCode+").response.docs[0].weergavenaam");
 
     totalBuildingPartsCount++;
     buildingParts[totalBuildingPartsCount] = BuildingPart(_buildingPartOwner, _buildingPartStreet, _buildingPartNumber, _buildingPartPostalCode);
@@ -71,10 +116,12 @@ contract SimpleBuildingOwnership is usingProvable {
     return (name, buildingPartIds, fillPartsAuthority);
   }
 
-  function getBuildingPart(uint _id) public view returns(address, string memory) {
+  function getBuildingPart(uint _id) public view returns(address, string memory, string memory, string memory) {
     address owner = buildingParts[_id].owner;
-    string memory buildingPartAddress = buildingParts[_id].buildingPartAddress;
-    return (owner, buildingPartAddress);
+    string memory streetName = buildingParts[_id].streetName;
+    string memory houseNumber = buildingParts[_id].houseNumber;
+    string memory postalCode = buildingParts[_id].postalCode;
+    return (owner, streetName, houseNumber, postalCode);
   }
 
   function allBuildingPartsFilled(uint _buildingIndex) private view returns(bool) {
@@ -86,24 +133,5 @@ contract SimpleBuildingOwnership is usingProvable {
       }
     }
     return amountOfBuildingPartsFilled == buildingPartIds.length ? true : false;
-  }
-
-  function uint2str(uint _i) internal pure returns(string memory _uintAsString) {
-    if (_i == 0) {
-        return "0";
-    }
-    uint j = _i;
-    uint len;
-    while (j != 0) {
-        len++;
-        j /= 10;
-    }
-    bytes memory bstr = new bytes(len);
-    uint k = len - 1;
-    while (_i != 0) {
-        bstr[k--] = byte(uint8(48 + _i % 10));
-        _i /= 10;
-    }
-    return string(bstr);
   }
 }
