@@ -1,25 +1,25 @@
 {
   "files": {
-    "main.css": "/BC3_Bas/PD-05/react-simple-building-ownership/build/static/css/main.3a25d120.chunk.css",
-    "main.js": "/BC3_Bas/PD-05/react-simple-building-ownership/build/static/js/main.72fc5482.chunk.js",
-    "main.js.map": "/BC3_Bas/PD-05/react-simple-building-ownership/build/static/js/main.72fc5482.chunk.js.map",
-    "runtime-main.js": "/BC3_Bas/PD-05/react-simple-building-ownership/build/static/js/runtime-main.3d13ac16.js",
-    "runtime-main.js.map": "/BC3_Bas/PD-05/react-simple-building-ownership/build/static/js/runtime-main.3d13ac16.js.map",
-    "static/css/2.3c830e02.chunk.css": "/BC3_Bas/PD-05/react-simple-building-ownership/build/static/css/2.3c830e02.chunk.css",
-    "static/js/2.0b926317.chunk.js": "/BC3_Bas/PD-05/react-simple-building-ownership/build/static/js/2.0b926317.chunk.js",
-    "static/js/2.0b926317.chunk.js.map": "/BC3_Bas/PD-05/react-simple-building-ownership/build/static/js/2.0b926317.chunk.js.map",
-    "static/js/3.9a42aafe.chunk.js": "/BC3_Bas/PD-05/react-simple-building-ownership/build/static/js/3.9a42aafe.chunk.js",
-    "static/js/3.9a42aafe.chunk.js.map": "/BC3_Bas/PD-05/react-simple-building-ownership/build/static/js/3.9a42aafe.chunk.js.map",
-    "index.html": "/BC3_Bas/PD-05/react-simple-building-ownership/build/index.html",
-    "static/css/2.3c830e02.chunk.css.map": "/BC3_Bas/PD-05/react-simple-building-ownership/build/static/css/2.3c830e02.chunk.css.map",
-    "static/css/main.3a25d120.chunk.css.map": "/BC3_Bas/PD-05/react-simple-building-ownership/build/static/css/main.3a25d120.chunk.css.map",
-    "static/js/2.0b926317.chunk.js.LICENSE.txt": "/BC3_Bas/PD-05/react-simple-building-ownership/build/static/js/2.0b926317.chunk.js.LICENSE.txt"
+    "main.css": "/BC3_Bas/PD-08/react-simple-building-ownership/build/static/css/main.3a25d120.chunk.css",
+    "main.js": "/BC3_Bas/PD-08/react-simple-building-ownership/build/static/js/main.cffa9960.chunk.js",
+    "main.js.map": "/BC3_Bas/PD-08/react-simple-building-ownership/build/static/js/main.cffa9960.chunk.js.map",
+    "runtime-main.js": "/BC3_Bas/PD-08/react-simple-building-ownership/build/static/js/runtime-main.f7c80eff.js",
+    "runtime-main.js.map": "/BC3_Bas/PD-08/react-simple-building-ownership/build/static/js/runtime-main.f7c80eff.js.map",
+    "static/css/2.3c830e02.chunk.css": "/BC3_Bas/PD-08/react-simple-building-ownership/build/static/css/2.3c830e02.chunk.css",
+    "static/js/2.acb24e73.chunk.js": "/BC3_Bas/PD-08/react-simple-building-ownership/build/static/js/2.acb24e73.chunk.js",
+    "static/js/2.acb24e73.chunk.js.map": "/BC3_Bas/PD-08/react-simple-building-ownership/build/static/js/2.acb24e73.chunk.js.map",
+    "static/js/3.9a42aafe.chunk.js": "/BC3_Bas/PD-08/react-simple-building-ownership/build/static/js/3.9a42aafe.chunk.js",
+    "static/js/3.9a42aafe.chunk.js.map": "/BC3_Bas/PD-08/react-simple-building-ownership/build/static/js/3.9a42aafe.chunk.js.map",
+    "index.html": "/BC3_Bas/PD-08/react-simple-building-ownership/build/index.html",
+    "static/css/2.3c830e02.chunk.css.map": "/BC3_Bas/PD-08/react-simple-building-ownership/build/static/css/2.3c830e02.chunk.css.map",
+    "static/css/main.3a25d120.chunk.css.map": "/BC3_Bas/PD-08/react-simple-building-ownership/build/static/css/main.3a25d120.chunk.css.map",
+    "static/js/2.acb24e73.chunk.js.LICENSE.txt": "/BC3_Bas/PD-08/react-simple-building-ownership/build/static/js/2.acb24e73.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.3d13ac16.js",
+    "static/js/runtime-main.f7c80eff.js",
     "static/css/2.3c830e02.chunk.css",
-    "static/js/2.0b926317.chunk.js",
+    "static/js/2.acb24e73.chunk.js",
     "static/css/main.3a25d120.chunk.css",
-    "static/js/main.72fc5482.chunk.js"
+    "static/js/main.cffa9960.chunk.js"
   ]
 }
