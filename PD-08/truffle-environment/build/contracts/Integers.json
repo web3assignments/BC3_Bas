@@ -4931,9 +4931,17 @@
     "name": "solc",
     "version": "0.5.17+commit.d19bba13.Emscripten.clang"
   },
-  "networks": {},
+  "networks": {
+    "5777": {
+      "events": {},
+      "links": {},
+      "address": "0xe106699b14BeaF4a998c7bC1A195fe592B957f84",
+      "transactionHash": "0x2d60d8f82c3ae954f51911d91c2e1ad790c24afc1075840572ba3e80b6a01b83"
+    }
+  },
   "schemaVersion": "3.3.2",
-  "updatedAt": "2020-12-15T12:26:55.596Z",
+  "updatedAt": "2020-12-15T13:25:53.374Z",
+  "networkType": "ethereum",
   "devdoc": {
     "author": "James Lockhart <james@n3tw0rk.co.uk>",
     "methods": {
