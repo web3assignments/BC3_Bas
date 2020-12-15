@@ -36,48 +36,30 @@ contract SimpleBuildingOwnership is usingProvable {
     string streetName;
     string houseNumber;
     string postalCode;
-  }
-
-  struct ValidatedAddress {
-    string streetName;
-    string houseNumber;
-    string postalCode;
+    string city;
   }
 
   Building[] private buildings;
   uint private totalBuildingPartsCount;
   mapping(uint => BuildingPart) private buildingParts;
-  mapping(string => ValidatedAddress) private validatedAddresses;
+  mapping(string => string) private validatedAddresses;
 
   function __callback(bytes32, string memory result) public {
     if (msg.sender != provable_cbAddress()) revert();
-    
-    string[] memory split1 = result.split(", ");
-    string[] memory split2 = split1[1].split(" ");
-    string[] memory split3 = split1[0].split(" ");
-    string memory streetName = "";
-    if (split3.length > 2) {
-      for(uint i = 0; i < split3.length - 1; i++) {
-        streetName = streetName.concat(split3[i]).concat(" ");
-      }
-      streetName = streetName.substring(int(streetName.length() - 1));
-    } else {
-      streetName = split3[0];
+
+    if (bytes(result).length > 0) {
+      validatedAddresses[result] = result;
     }
-    string memory houseNumber = split3[split3.length - 1];
-    string memory postalCode = split2[0];
-    validatedAddresses[postalCode] = ValidatedAddress(streetName, houseNumber, postalCode);
   }
 
   function isAddressValidated(uint _buildingPartId) public view returns (bool) {
 
     BuildingPart memory buildingPart = buildingParts[_buildingPartId];
-    ValidatedAddress memory validatedAddress = validatedAddresses[buildingPart.postalCode];
+    string memory addressString = "";
+    addressString = addressString.concat(buildingPart.streetName).concat(" ").concat(buildingPart.houseNumber).concat(", ").concat(buildingPart.postalCode).concat(" ").concat(buildingPart.city);
+    string memory validatedAddress = validatedAddresses[addressString];
     
-    if (buildingPart.streetName.compareToIgnoreCase(validatedAddress.streetName)
-        && buildingPart.houseNumber.compareToIgnoreCase(validatedAddress.houseNumber)
-        && buildingPart.postalCode.compareToIgnoreCase(validatedAddress.postalCode)) {
-
+    if (addressString.compareToIgnoreCase(validatedAddress)) {
       return true;
     } else {
       return false;
@@ -99,7 +81,7 @@ contract SimpleBuildingOwnership is usingProvable {
   }
 
   function fillBuildingPart(uint _buildingIndex, uint _buildingPartIndex, string memory _buildingPartStreet, string memory _buildingPartNumber, 
-    string memory _buildingPartPostalCode, address _buildingPartOwner) public payable 
+    string memory _buildingPartPostalCode, string memory _buildingPartCity, address _buildingPartOwner) public payable 
     onlyBuildingAuthority(_buildingIndex) onlyEmptyBuildingPart(_buildingIndex, _buildingPartIndex) returns (uint) {
     
     require (address(this).balance >= provable_getPrice("URL"),
@@ -107,7 +89,7 @@ contract SimpleBuildingOwnership is usingProvable {
     provable_query("URL", getGeoRegisterUrl(_buildingPartStreet, _buildingPartNumber, _buildingPartPostalCode));
 
     totalBuildingPartsCount++;
-    buildingParts[totalBuildingPartsCount] = BuildingPart(_buildingPartOwner, _buildingPartStreet, _buildingPartNumber, _buildingPartPostalCode);
+    buildingParts[totalBuildingPartsCount] = BuildingPart(_buildingPartOwner, _buildingPartStreet, _buildingPartNumber, _buildingPartPostalCode, _buildingPartCity);
     buildings[_buildingIndex].buildingPartIds[_buildingPartIndex] = totalBuildingPartsCount;
     if (allBuildingPartsFilled(_buildingIndex)) {
       buildings[_buildingIndex].fillPartsAuthority = address(0);
@@ -122,12 +104,13 @@ contract SimpleBuildingOwnership is usingProvable {
     return (name, buildingPartIds, fillPartsAuthority);
   }
 
-  function getBuildingPart(uint _id) public view returns(address, string memory, string memory, string memory) {
+  function getBuildingPart(uint _id) public view returns(address, string memory, string memory, string memory, string memory) {
     address owner = buildingParts[_id].owner;
     string memory streetName = buildingParts[_id].streetName;
     string memory houseNumber = buildingParts[_id].houseNumber;
     string memory postalCode = buildingParts[_id].postalCode;
-    return (owner, streetName, houseNumber, postalCode);
+    string memory city = buildingParts[_id].city;
+    return (owner, streetName, houseNumber, postalCode, city);
   }
 
   function allBuildingPartsFilled(uint _buildingIndex) private view returns(bool) {

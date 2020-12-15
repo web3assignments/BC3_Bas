@@ -27,7 +27,7 @@ module.exports = {
         goerli: {
             provider: () => new HDWalletProvider(privateKey, `https://goerli.infura.io/v3/${infuraKey}`),
             network_id: 5,       // goerli's id
-            gas: 300000,        // default: 6721975, // limit 8000000
+            gas: 6000000,        // default: 6721975, // limit 8000000
             skipDryRun: true
         }
     },

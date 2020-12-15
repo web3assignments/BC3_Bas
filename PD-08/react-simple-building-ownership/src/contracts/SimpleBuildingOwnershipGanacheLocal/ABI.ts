@@ -147,6 +147,11 @@ export const ABI: Array<Web3Utils.AbiItem> = [
                 "type": "string"
             },
             {
+                "internalType": "string",
+                "name": "_buildingPartCity",
+                "type": "string"
+            },
+            {
                 "internalType": "address",
                 "name": "_buildingPartOwner",
                 "type": "address"
@@ -210,6 +215,11 @@ export const ABI: Array<Web3Utils.AbiItem> = [
                 "internalType": "address",
                 "name": "",
                 "type": "address"
+            },
+            {
+                "internalType": "string",
+                "name": "",
+                "type": "string"
             },
             {
                 "internalType": "string",

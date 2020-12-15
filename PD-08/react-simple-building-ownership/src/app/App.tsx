@@ -33,6 +33,7 @@ export const App = React.memo(() => {
   const [fillBuildingPartStreetNameInput, setFillBuildingPartStreetNameInput] = React.useState('');
   const [fillBuildingPartHouseNumberInput, setFillBuildingPartHouseNumberInput] = React.useState('');
   const [fillBuildingPartPostalCodeInput, setFillBuildingPartPostalCodeInput] = React.useState('');
+  const [fillBuildingPartCityInput, setFillBuildingPartCityInput] = React.useState('');
   const [fillBuildingPartBuildingPartOwnerInput, setFillBuildingPartBuildingPartOwnerInput] = React.useState('');
   const [fillBuildingPartResult, setFillBuildingPartResult] = React.useState('');
 
@@ -50,13 +51,13 @@ export const App = React.memo(() => {
     setAddBuildingResult(JSON.stringify(result));
   }
 
-  const fillBuildingPart = async (buildingIndex: number, buildingPartIndex: number, streetName: string, houseNumber: string, postalCode: string, buildingPartOwner: string) => {
-    let result = await simpleBuildingOwnershipContract.methods.fillBuildingPart(buildingIndex, buildingPartIndex, streetName, houseNumber, postalCode, buildingPartOwner).send({from: account}).catch((e: any) => { console.log(e); });
+  const fillBuildingPart = async (buildingIndex: number, buildingPartIndex: number, streetName: string, houseNumber: string, postalCode: string, city: string, buildingPartOwner: string) => {
+    let result = await simpleBuildingOwnershipContract.methods.fillBuildingPart(buildingIndex, buildingPartIndex, streetName, houseNumber, postalCode, city, buildingPartOwner).send({from: account, value: 50000000000000000}).catch((e: any) => { console.log(e); });
     setFillBuildingPartResult(JSON.stringify(result));
   }
 
   const isAddressValidated = async (buildingPartId: number) => {
-    let result = await simpleBuildingOwnershipContract.methods.isAddressValidated(buildingPartId);
+    let result = await simpleBuildingOwnershipContract.methods.isAddressValidated(buildingPartId).call().catch((e: any) => { console.log(e); });
     setIsAddressValidatedResult(JSON.stringify(result));
   }
 
@@ -135,8 +136,9 @@ export const App = React.memo(() => {
             <input onChange={e => setFillBuildingPartStreetNameInput(e.target.value)} type="text" placeholder="streetName" className="form-control app__block--input" />
             <input onChange={e => setFillBuildingPartHouseNumberInput(e.target.value)} type="text" placeholder="houseNumber" className="form-control app__block--input" />
             <input onChange={e => setFillBuildingPartPostalCodeInput(e.target.value)} type="text" placeholder="postalCode" className="form-control app__block--input" />
+            <input onChange={e => setFillBuildingPartCityInput(e.target.value)} type="text" placeholder="city" className="form-control app__block--input" />
             <input onChange={e => setFillBuildingPartBuildingPartOwnerInput(e.target.value)} type="text" placeholder="buildingPartOwner" className="form-control app__block--input" />
-            <button onClick={() => fillBuildingPart(fillBuildingPartBuildingIndexInput, fillBuildingPartBuildingPartIndexInput, fillBuildingPartStreetNameInput, fillBuildingPartHouseNumberInput, fillBuildingPartPostalCodeInput, fillBuildingPartBuildingPartOwnerInput)} 
+            <button onClick={() => fillBuildingPart(fillBuildingPartBuildingIndexInput, fillBuildingPartBuildingPartIndexInput, fillBuildingPartStreetNameInput, fillBuildingPartHouseNumberInput, fillBuildingPartPostalCodeInput, fillBuildingPartCityInput, fillBuildingPartBuildingPartOwnerInput)} 
               type="button" className="btn btn-primary app__block--button">Send
             </button>
           </div>
