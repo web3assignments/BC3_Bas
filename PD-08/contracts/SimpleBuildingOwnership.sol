@@ -1,5 +1,5 @@
 //SPDX-License-Identifier: UNLICENSED
-pragma solidity ^0.6.0;
+pragma solidity ^0.5.0;
 
 import "./provableAPI.sol";
 import "solidity-util/lib/Strings.sol";
@@ -49,7 +49,7 @@ contract SimpleBuildingOwnership is usingProvable {
   mapping(uint => BuildingPart) private buildingParts;
   mapping(string => ValidatedAddress) private validatedAddresses;
 
-  function __callback(bytes32, string memory result) override public {
+  function __callback(bytes32, string memory result) public {
     if (msg.sender != provable_cbAddress()) revert();
     
     string[] memory split1 = result.split(", ");
@@ -60,16 +60,16 @@ contract SimpleBuildingOwnership is usingProvable {
       for(uint i = 0; i < split3.length - 1; i++) {
         streetName = streetName.concat(split3[i]).concat(" ");
       }
-      streetName = streetName.substring(streetName.length() - 1);
+      streetName = streetName.substring(int(streetName.length() - 1));
     } else {
       streetName = split3[0];
     }
     string memory houseNumber = split3[split3.length - 1];
     string memory postalCode = split2[0];
-    validatedAddresses.push(ValidatedAddress(streetName, houseNumber, postalCode));
+    validatedAddresses[postalCode] = ValidatedAddress(streetName, houseNumber, postalCode);
   }
 
-  function isAddressValidated(uint _buildingPartId) public returns (bool) {
+  function isAddressValidated(uint _buildingPartId) public view returns (bool) {
 
     BuildingPart memory buildingPart = buildingParts[_buildingPartId];
     ValidatedAddress memory validatedAddress = validatedAddresses[buildingPart.postalCode];
@@ -90,15 +90,21 @@ contract SimpleBuildingOwnership is usingProvable {
     return buildings.length - 1;
   }
 
+  function getGeoRegisterUrl(string memory _buildingPartStreet, string memory _buildingPartNumber, 
+    string memory _buildingPartPostalCode) private pure returns (string memory) {
+
+    string memory apiUrl = "";
+    apiUrl = apiUrl.concat("json(https://geodata.nationaalgeoregister.nl/locatieserver/v3/suggest?q=").concat(_buildingPartStreet).concat("%20").concat(_buildingPartNumber).concat(",").concat(_buildingPartPostalCode).concat(").response.docs[0].weergavenaam");
+    return apiUrl;
+  }
+
   function fillBuildingPart(uint _buildingIndex, uint _buildingPartIndex, string memory _buildingPartStreet, string memory _buildingPartNumber, 
     string memory _buildingPartPostalCode, address _buildingPartOwner) public payable 
     onlyBuildingAuthority(_buildingIndex) onlyEmptyBuildingPart(_buildingIndex, _buildingPartIndex) returns (uint) {
     
-    uint priceOfUrl = provable_getPrice("URL");
-    require (address(this).balance >= priceOfUrl,
+    require (address(this).balance >= provable_getPrice("URL"),
         "please add some ETH to cover for the query fee");
-    provable_query("URL", 
-        "json(https://geodata.nationaalgeoregister.nl/locatieserver/v3/suggest?q="+_buildingPartStreet+"%20"+_buildingPartNumber+","+_buildingPartPostalCode+").response.docs[0].weergavenaam");
+    provable_query("URL", getGeoRegisterUrl(_buildingPartStreet, _buildingPartNumber, _buildingPartPostalCode));
 
     totalBuildingPartsCount++;
     buildingParts[totalBuildingPartsCount] = BuildingPart(_buildingPartOwner, _buildingPartStreet, _buildingPartNumber, _buildingPartPostalCode);
