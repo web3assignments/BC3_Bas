@@ -1,0 +1,199 @@
+{
+  "manifestVersion": "3.1",
+  "impls": {
+    "cd86b46b9c09fefa8133c0f2010eb06f90453e1a15273584be7f533fc743592f": {
+      "address": "0x624CC04B01a577E5A47c6985219fb2FE157F9b29",
+      "txHash": "0x8df09fccc8fd92f208f08ec9776480753b82c811672eccd455e94c3f2e4c9dcb",
+      "layout": {
+        "storage": [
+          {
+            "contract": "Initializable",
+            "label": "initialized",
+            "type": "t_bool",
+            "src": "..\\@openzeppelin\\upgrades-core\\contracts\\Initializable.sol:23"
+          },
+          {
+            "contract": "Initializable",
+            "label": "initializing",
+            "type": "t_bool",
+            "src": "..\\@openzeppelin\\upgrades-core\\contracts\\Initializable.sol:28"
+          },
+          {
+            "contract": "Initializable",
+            "label": "______gap",
+            "type": "t_array(t_uint256)50_storage",
+            "src": "..\\@openzeppelin\\upgrades-core\\contracts\\Initializable.sol:63"
+          },
+          {
+            "contract": "TestContract",
+            "label": "value",
+            "type": "t_uint256",
+            "src": "..\\..\\..\\..\\..\\..\\..\\E\\School\\GitRepos\\blockchain-minor-it\\BC3_Bas\\PD-09\\test-contract openzeppelin-upgrade truffle-environment\\contracts\\TestContract.sol:8"
+          }
+        ],
+        "types": {
+          "t_uint256": {
+            "label": "uint256"
+          },
+          "t_bool": {
+            "label": "bool"
+          },
+          "t_array(t_uint256)50_storage": {
+            "label": "uint256[50]"
+          }
+        }
+      }
+    },
+    "f5575bbac0f47b8ba5c2e9314c97c12699a1c5a5b2a3794ac64a479dff784c9a": {
+      "address": "0x1363eE3e65ea99FA3e41e2d675C84755351C4f05",
+      "txHash": "0xbeaabe403fd583ed78dd27da8030be1437ee80cf96d4b84eca0668d7bd4f4a82",
+      "layout": {
+        "storage": [
+          {
+            "contract": "Initializable",
+            "label": "initialized",
+            "type": "t_bool",
+            "src": "..\\@openzeppelin\\upgrades-core\\contracts\\Initializable.sol:23"
+          },
+          {
+            "contract": "Initializable",
+            "label": "initializing",
+            "type": "t_bool",
+            "src": "..\\@openzeppelin\\upgrades-core\\contracts\\Initializable.sol:28"
+          },
+          {
+            "contract": "Initializable",
+            "label": "______gap",
+            "type": "t_array(t_uint256)50_storage",
+            "src": "..\\@openzeppelin\\upgrades-core\\contracts\\Initializable.sol:63"
+          },
+          {
+            "contract": "TestContract",
+            "label": "value",
+            "type": "t_uint256",
+            "src": "..\\..\\..\\..\\..\\..\\..\\E\\School\\GitRepos\\blockchain-minor-it\\BC3_Bas\\PD-09\\test-contract openzeppelin-upgrade truffle-environment\\contracts\\TestContract.sol:8"
+          }
+        ],
+        "types": {
+          "t_uint256": {
+            "label": "uint256"
+          },
+          "t_bool": {
+            "label": "bool"
+          },
+          "t_array(t_uint256)50_storage": {
+            "label": "uint256[50]"
+          }
+        }
+      }
+    },
+    "a7f571a05dcb1c276f2da134d9d87c37938750b2ac0f344fcf63b6fe3f7d57b9": {
+      "address": "0xF6C4D0DfbCb5f48bd8c7509226bB43a67ADB56A9",
+      "txHash": "0x8090f9e7626a3855323db4286797f73e4d90799c6795dbc585268b914bb4863e",
+      "layout": {
+        "storage": [
+          {
+            "contract": "Initializable",
+            "label": "initialized",
+            "type": "t_bool",
+            "src": "..\\@openzeppelin\\upgrades-core\\contracts\\Initializable.sol:23"
+          },
+          {
+            "contract": "Initializable",
+            "label": "initializing",
+            "type": "t_bool",
+            "src": "..\\@openzeppelin\\upgrades-core\\contracts\\Initializable.sol:28"
+          },
+          {
+            "contract": "Initializable",
+            "label": "______gap",
+            "type": "t_array(t_uint256)50_storage",
+            "src": "..\\@openzeppelin\\upgrades-core\\contracts\\Initializable.sol:63"
+          },
+          {
+            "contract": "TestContract2",
+            "label": "value",
+            "type": "t_uint256",
+            "src": "..\\..\\..\\..\\..\\..\\..\\E\\School\\GitRepos\\blockchain-minor-it\\BC3_Bas\\PD-09\\test-contract openzeppelin-upgrade truffle-environment\\contracts\\TestContract2.sol:16"
+          },
+          {
+            "contract": "TestContract2",
+            "label": "contractOwner",
+            "type": "t_address_payable",
+            "src": "..\\..\\..\\..\\..\\..\\..\\E\\School\\GitRepos\\blockchain-minor-it\\BC3_Bas\\PD-09\\test-contract openzeppelin-upgrade truffle-environment\\contracts\\TestContract2.sol:17"
+          }
+        ],
+        "types": {
+          "t_uint256": {
+            "label": "uint256"
+          },
+          "t_address_payable": {
+            "label": "address payable"
+          },
+          "t_bool": {
+            "label": "bool"
+          },
+          "t_array(t_uint256)50_storage": {
+            "label": "uint256[50]"
+          }
+        }
+      }
+    },
+    "c34a1f430936ecf4b0a0f1ca7d8a76a84e95e9c4652fb8ebf30fc0067a29fddf": {
+      "address": "0x482ca84b5517Fa0dD61fBAfA6a46F0633350E83D",
+      "txHash": "0xca16763f403539489668e1b447d2a9e867fd2636d141b1be3a01f4562fe685c7",
+      "layout": {
+        "storage": [
+          {
+            "contract": "Initializable",
+            "label": "initialized",
+            "type": "t_bool",
+            "src": "..\\@openzeppelin\\upgrades-core\\contracts\\Initializable.sol:23"
+          },
+          {
+            "contract": "Initializable",
+            "label": "initializing",
+            "type": "t_bool",
+            "src": "..\\@openzeppelin\\upgrades-core\\contracts\\Initializable.sol:28"
+          },
+          {
+            "contract": "Initializable",
+            "label": "______gap",
+            "type": "t_array(t_uint256)50_storage",
+            "src": "..\\@openzeppelin\\upgrades-core\\contracts\\Initializable.sol:63"
+          },
+          {
+            "contract": "TestContract2",
+            "label": "value",
+            "type": "t_uint256",
+            "src": "..\\..\\..\\..\\..\\..\\..\\E\\School\\GitRepos\\blockchain-minor-it\\BC3_Bas\\PD-09\\test-contract openzeppelin-upgrade truffle-environment\\contracts\\TestContract2.sol:18"
+          },
+          {
+            "contract": "TestContract2",
+            "label": "contractOwner",
+            "type": "t_address",
+            "src": "..\\..\\..\\..\\..\\..\\..\\E\\School\\GitRepos\\blockchain-minor-it\\BC3_Bas\\PD-09\\test-contract openzeppelin-upgrade truffle-environment\\contracts\\TestContract2.sol:19"
+          }
+        ],
+        "types": {
+          "t_uint256": {
+            "label": "uint256"
+          },
+          "t_address": {
+            "label": "address"
+          },
+          "t_bool": {
+            "label": "bool"
+          },
+          "t_array(t_uint256)50_storage": {
+            "label": "uint256[50]"
+          }
+        }
+      }
+    }
+  },
+  "admin": {
+    "address": "0x09AFD51C5B6b014437d3654C6dE75d8E65121608",
+    "txHash": "0xd460fe143b985c5abe9a5b175c65dd3a8f6d4b70f717f2ef7c700f02bfa98dd4"
+  }
+}
