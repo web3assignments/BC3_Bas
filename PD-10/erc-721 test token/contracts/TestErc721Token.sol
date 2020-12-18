@@ -15,16 +15,16 @@ contract TestErc721Token is ERC721 {
 
     mapping(uint256 => House) private houses;
 
-    constructor() public ERC721("House", "HS") {}
+    constructor() ERC721("House", "HS") {}
 
-    function addHouse(address owner, string memory postalCode)
+    function addHouse(string memory postalCode)
         public
         returns (uint256)
     {
         _tokenIds.increment();
 
         uint256 newItemId = _tokenIds.current();
-        _mint(owner, newItemId);
+        _mint(msg.sender, newItemId);
         houses[newItemId] = House(postalCode);
 
         return newItemId;
