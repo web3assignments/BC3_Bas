@@ -1,1 +1,1 @@
-Put the results here
+Contract had al modifiers die access control in het contract regelen. TransferOwnership functie toegevoegd.
