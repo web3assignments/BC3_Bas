@@ -1,0 +1,11 @@
+{
+    "description": "Old house in the mountains",
+    "image": "ipfs://QmWBFTEGmXJqD5FzqEgupDMXCqF6tk1cqPKKotofms4bAu",
+    "name": "House 1",
+    "attributes": [
+        {
+            "trait_type": "Postal Code",
+            "value": "5964RK"
+        }
+    ]
+}

@@ -9,23 +9,17 @@ contract TestErc721Token is ERC721 {
     using Counters for Counters.Counter;
     Counters.Counter private _tokenIds;
 
-    struct House {
-        string postalCode;
-    }
-
-    mapping(uint256 => House) private houses;
-
     constructor() ERC721("House", "HS") {}
 
-    function addHouse(string memory postalCode)
+    function addHouse(string memory tokenURI)
         public
         returns (uint256)
     {
         _tokenIds.increment();
-
         uint256 newItemId = _tokenIds.current();
+
         _mint(msg.sender, newItemId);
-        houses[newItemId] = House(postalCode);
+        _setTokenURI(newItemId, tokenURI);
 
         return newItemId;
     }
