@@ -1,0 +1,343 @@
+{
+  "contractName": "Addresses",
+  "abi": [],
+  "metadata": "{\"compiler\":{\"version\":\"0.5.17+commit.d19bba13\"},\"language\":\"Solidity\",\"output\":{\"abi\":[],\"devdoc\":{\"author\":\"James Lockhart <james@n3tw0rk.co.uk>\",\"methods\":{}},\"userdoc\":{\"methods\":{},\"notice\":\"Addresses Library \\r In summary this is a simple library of address functions which extends the pre-existing functionality \\r\"}},\"settings\":{\"compilationTarget\":{\"solidity-util/lib/Addresses.sol\":\"Addresses\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"solidity-util/lib/Addresses.sol\":{\"keccak256\":\"0x3780ada87db6539fb9c649acb79c7f00bce2f634ff929d669c61852d20ac7e54\",\"urls\":[\"bzz-raw://8d9afa7ffbf419824d18d7cceebc0edfaa860fbb2ca1296a0294313b836554e3\",\"dweb:/ipfs/QmaXXEmS8hiUf6XBAPYbfsLnFcyYD66dK3QgmgEDxUxw4H\"]}},\"version\":1}",
+  "bytecode": "0x60556023600b82828239805160001a607314601657fe5b30600052607381538281f3fe73000000000000000000000000000000000000000030146080604052600080fdfea265627a7a7231582036d84d1e2448e1ccf4e57c2ffe9142c889a267d4a368be3f701341865277366464736f6c63430005110032",
+  "deployedBytecode": "0x73000000000000000000000000000000000000000030146080604052600080fdfea265627a7a7231582036d84d1e2448e1ccf4e57c2ffe9142c889a267d4a368be3f701341865277366464736f6c63430005110032",
+  "sourceMap": "228:454:3:-;;132:2:-1;166:7;155:9;146:7;137:37;255:7;249:14;246:1;241:23;235:4;232:33;222:2;;269:9;222:2;293:9;290:1;283:20;323:4;314:7;306:22;347:7;338;331:24",
+  "deployedSourceMap": "228:454:3:-;;;;;;;;",
+  "source": "pragma solidity ^0.5.0;\r\n\r\n/**\r\n * Addresses Library\r\n * \r\n * In summary this is a simple library of address functions which extends the\r\n * pre-existing functionality\r\n * \r\n * @author James Lockhart <james@n3tw0rk.co.uk>\r\n */\r\nlibrary Addresses {\r\n    /**\r\n     * Is Contract\r\n     * \r\n     * Check to see if the subject address is a contract on the Ethereum network\r\n     * \r\n     * @param _base The address on the network to check if it is a contract\r\n     * @return bool Returns true if it is a valid contract\r\n     */\r\n    function isContract(address _base) internal view returns (bool _r) {\r\n        assembly {\r\n            _r := gt(extcodesize(_base), 0)\r\n        }\r\n    }\r\n}",
+  "sourcePath": "solidity-util/lib/Addresses.sol",
+  "ast": {
+    "absolutePath": "solidity-util/lib/Addresses.sol",
+    "exportedSymbols": {
+      "Addresses": [
+        6919
+      ]
+    },
+    "id": 6920,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 6909,
+        "literals": [
+          "solidity",
+          "^",
+          "0.5",
+          ".0"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:23:3"
+      },
+      {
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "library",
+        "documentation": "Addresses Library\n\r\nIn summary this is a simple library of address functions which extends the\npre-existing functionality\n\r\n@author James Lockhart <james@n3tw0rk.co.uk>",
+        "fullyImplemented": true,
+        "id": 6919,
+        "linearizedBaseContracts": [
+          6919
+        ],
+        "name": "Addresses",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "body": {
+              "id": 6917,
+              "nodeType": "Block",
+              "src": "595:84:3",
+              "statements": [
+                {
+                  "externalReferences": [
+                    {
+                      "_r": {
+                        "declaration": 6914,
+                        "isOffset": false,
+                        "isSlot": false,
+                        "src": "630:2:3",
+                        "valueSize": 1
+                      }
+                    },
+                    {
+                      "_base": {
+                        "declaration": 6911,
+                        "isOffset": false,
+                        "isSlot": false,
+                        "src": "651:5:3",
+                        "valueSize": 1
+                      }
+                    }
+                  ],
+                  "id": 6916,
+                  "nodeType": "InlineAssembly",
+                  "operations": "{\n    _r := gt(extcodesize(_base), 0)\n}",
+                  "src": "606:66:3"
+                }
+              ]
+            },
+            "documentation": "Is Contract\n\r\nCheck to see if the subject address is a contract on the Ethereum network\n\r\n@param _base The address on the network to check if it is a contract\n@return bool Returns true if it is a valid contract",
+            "id": 6918,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "isContract",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 6912,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 6911,
+                  "name": "_base",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 6918,
+                  "src": "548:13:3",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 6910,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "548:7:3",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "547:15:3"
+            },
+            "returnParameters": {
+              "id": 6915,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 6914,
+                  "name": "_r",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 6918,
+                  "src": "586:7:3",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bool",
+                    "typeString": "bool"
+                  },
+                  "typeName": {
+                    "id": 6913,
+                    "name": "bool",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "586:4:3",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "585:9:3"
+            },
+            "scope": 6919,
+            "src": "528:151:3",
+            "stateMutability": "view",
+            "superFunction": null,
+            "visibility": "internal"
+          }
+        ],
+        "scope": 6920,
+        "src": "228:454:3"
+      }
+    ],
+    "src": "0:682:3"
+  },
+  "legacyAST": {
+    "absolutePath": "solidity-util/lib/Addresses.sol",
+    "exportedSymbols": {
+      "Addresses": [
+        6919
+      ]
+    },
+    "id": 6920,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 6909,
+        "literals": [
+          "solidity",
+          "^",
+          "0.5",
+          ".0"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:23:3"
+      },
+      {
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "library",
+        "documentation": "Addresses Library\n\r\nIn summary this is a simple library of address functions which extends the\npre-existing functionality\n\r\n@author James Lockhart <james@n3tw0rk.co.uk>",
+        "fullyImplemented": true,
+        "id": 6919,
+        "linearizedBaseContracts": [
+          6919
+        ],
+        "name": "Addresses",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "body": {
+              "id": 6917,
+              "nodeType": "Block",
+              "src": "595:84:3",
+              "statements": [
+                {
+                  "externalReferences": [
+                    {
+                      "_r": {
+                        "declaration": 6914,
+                        "isOffset": false,
+                        "isSlot": false,
+                        "src": "630:2:3",
+                        "valueSize": 1
+                      }
+                    },
+                    {
+                      "_base": {
+                        "declaration": 6911,
+                        "isOffset": false,
+                        "isSlot": false,
+                        "src": "651:5:3",
+                        "valueSize": 1
+                      }
+                    }
+                  ],
+                  "id": 6916,
+                  "nodeType": "InlineAssembly",
+                  "operations": "{\n    _r := gt(extcodesize(_base), 0)\n}",
+                  "src": "606:66:3"
+                }
+              ]
+            },
+            "documentation": "Is Contract\n\r\nCheck to see if the subject address is a contract on the Ethereum network\n\r\n@param _base The address on the network to check if it is a contract\n@return bool Returns true if it is a valid contract",
+            "id": 6918,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "isContract",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 6912,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 6911,
+                  "name": "_base",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 6918,
+                  "src": "548:13:3",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 6910,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "548:7:3",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "547:15:3"
+            },
+            "returnParameters": {
+              "id": 6915,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 6914,
+                  "name": "_r",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 6918,
+                  "src": "586:7:3",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bool",
+                    "typeString": "bool"
+                  },
+                  "typeName": {
+                    "id": 6913,
+                    "name": "bool",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "586:4:3",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "585:9:3"
+            },
+            "scope": 6919,
+            "src": "528:151:3",
+            "stateMutability": "view",
+            "superFunction": null,
+            "visibility": "internal"
+          }
+        ],
+        "scope": 6920,
+        "src": "228:454:3"
+      }
+    ],
+    "src": "0:682:3"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.5.17+commit.d19bba13.Emscripten.clang"
+  },
+  "networks": {
+    "5777": {
+      "events": {},
+      "links": {},
+      "address": "0x923bA9bE5C2BDcf8b25dC740C74fd9E4DA81BF23",
+      "transactionHash": "0x1a93ca6e0d9567bb2bfc7a8a47163cc2ba7f57ed389e250a5b000875a35bb03f"
+    }
+  },
+  "schemaVersion": "3.3.2",
+  "updatedAt": "2021-01-12T11:06:33.921Z",
+  "devdoc": {
+    "author": "James Lockhart <james@n3tw0rk.co.uk>",
+    "methods": {}
+  },
+  "userdoc": {
+    "methods": {},
+    "notice": "Addresses Library \r In summary this is a simple library of address functions which extends the pre-existing functionality \r"
+  }
+}
