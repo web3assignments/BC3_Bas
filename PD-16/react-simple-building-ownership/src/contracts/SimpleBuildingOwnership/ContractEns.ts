@@ -1,0 +1,1 @@
+export const ContractEns = 'contract.test.eth'; //rinkeby
