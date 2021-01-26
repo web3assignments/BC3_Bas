@@ -1,3 +1,166 @@
 .add-building {
+
+    margin-top: 70px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    &__margin-right {
+        margin-right: 5px;
+    }
     
+    &__inputs {
+        margin-top: 25px;
+        margin-bottom: 25px;
+        display: flex;
+        flex-direction: column;
+        width: 70%;
+
+        &--row {
+            display: flex;
+            margin-top: 5px;
+        }
+    }
+
+    &__margin-left {
+        margin-left: 5px;
+    }
+
+    &__button {
+        height: 43.5px;
+    }
+
+    &__loading {
+        opacity: 0.5;
+        pointer-events: none;
+    }
+
+    &__result {
+        margin-top: 25px;
+        margin-bottom: 25px;
+        border-radius: 10px;
+        border: 1px solid rgba($color: black, $alpha: 0.4);
+        padding-top: 15px;
+        padding-left: 15px;
+        padding-right: 15px;
+        padding-bottom: 15px;
+        width: 70%;
+    }
+
+    &__column {
+
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        line-height: 50px;
+        height: 50px;
+        margin-right: 5px;
+
+        &--5 {
+            display: flex;
+            flex-direction: column;
+            width: 5%;
+            line-height: 50px;
+            height: 50px;
+            margin-right: 5px;
+        }
+
+        &--10 {
+            display: flex;
+            flex-direction: column;
+            width: 10%;
+            line-height: 50px;
+            height: 50px;
+            margin-right: 5px;
+        }
+
+        &--12 {
+            display: flex;
+            flex-direction: column;
+            width: 12%;
+            line-height: 50px;
+            height: 50px;
+            margin-right: 5px;
+        }
+
+        &--8 {
+            display: flex;
+            flex-direction: column;
+            width: 8%;
+            line-height: 50px;
+            height: 50px;
+            margin-right: 5px;
+        }
+
+        &--55 {
+            display: flex;
+            flex-direction: column;
+            width: 55%;
+            line-height: 50px;
+            height: 50px;
+            margin-right: 5px;
+        }
+
+        &--60 {
+            display: flex;
+            flex-direction: column;
+            width: 60%;
+            line-height: 50px;
+            height: 50px;
+            margin-right: 5px;
+        }
+
+        &--40 {
+            display: flex;
+            flex-direction: column;
+            width: 40%;
+            line-height: 50px;
+            height: 50px;
+            margin-right: 5px;
+        }
+
+        &--25 {
+            display: flex;
+            flex-direction: column;
+            width: 25%;
+            line-height: 50px;
+            height: 50px;
+            margin-right: 5px;
+        }
+
+        &--15 {
+            display: flex;
+            flex-direction: column;
+            width: 15%;
+            line-height: 50px;
+            height: 50px;
+            margin-right: 5px;
+        }
+
+        &--20 {
+            display: flex;
+            flex-direction: column;
+            width: 20%;
+            line-height: 50px;
+            height: 50px;
+            margin-right: 5px;
+        }
+    }
+
+    &__row {
+        display: flex;
+        flex-direction: row;
+
+        &--title {
+            font-weight: bold;
+        }
+    }
+
+    &__green {
+        color: green;
+    }
+
+    &__red {
+        color: red;
+    }
 }

@@ -21,6 +21,17 @@ export const Nav = React.memo((props: INavProps) => {
                         <Link className="btn nav-link" to="/transfer-ownership">Transfer Ownership</Link>
                     </li>
                 </ul>
+                <ul className="navbar-nav">
+                    <li className="nav-item">
+                        <div className="nav-link">ChainId: {props.chainId}</div>
+                    </li>
+                    <li className="nav-item">
+                        <div className="nav-link">NetworkId: {props.networkId}</div>
+                    </li>
+                    <li className="nav-item">
+                        <div className="nav-link">Account: {props.account}</div>
+                    </li>
+                </ul>
             </div>
         </nav>
     </>
